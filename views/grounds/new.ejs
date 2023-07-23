@@ -1,0 +1,100 @@
+<% layout('layouts/boilerplate') %>
+
+<!-- Form to add new ground  -->
+<div class="row">
+  <h1 class="text-center">New ground for rent</h1>
+  <div class="col-6 offset-3">
+    <form
+      action="/grounds"
+      method="post"
+      novalidate
+      class="validated-form"
+      enctype="multipart/form-data"
+    >
+      <!-- ground title  -->
+      <div class="mb-3">
+        <label class="form-label" for="title">Title</label>
+        <input
+          class="form-control"
+          type="text"
+          id="title"
+          name="ground[title]"
+          required
+        />
+        <div class="invalid-feedback">Title is a required field</div>
+      </div>
+
+      <!-- Add ground location  -->
+      <div class="mb-3">
+        <label class="form-label" for="location">Location</label>
+        <input
+          class="form-control"
+          type="text"
+          id="location"
+          name="ground[location]"
+          required
+        />
+        <div class="invalid-feedback">Location is required.</div>
+      </div>
+
+      <!-- Add ground images  -->
+      <div class="mb-3">
+        <label for="image" class="form-label">Upload Images</label>
+        <input
+          class="form-control"
+          type="file"
+          id="image"
+          multiple
+          name="image"
+        />
+      </div>
+
+      <!-- ground price  -->
+      <div class="mb-3">
+        <label for="price" class="form-label">Ground Rent</label>
+        <div class="input-group">
+          <span class="input-group-text" id="price-label"> ₹ </span>
+          <input
+            type="text"
+            id="price"
+            class="form-control"
+            placeholder="0.00"
+            aria-label="price"
+            aria-describedby="price-label"
+            name="ground[price]"
+            required
+          />
+          <div class="invalid-feedback">
+            Please provide price in Indian rupees.
+          </div>
+        </div>
+      </div>
+
+      <!-- ground description  -->
+      <div class="mb-3">
+        <label class="form-label" for="description">Ground Description</label>
+        <textarea
+          class="form-control"
+          type="text"
+          id="description"
+          name="ground[description]"
+          required
+        ></textarea>
+        <div class="invalid-feedback">
+          Please provide description about ground!
+        </div>
+      </div>
+
+      <!-- Add ground button  -->
+      <div class="mb-3" style="text-align: right">
+        <button class="btn btn-success">Add Tolet Ground</button>
+      </div>
+    </form>
+
+    <div style="margin-bottom: 20px">
+      <a href="/grounds" class="btn btn-danger" style="padding: 8px 15px"
+        >Back to all Grounds</a
+      >
+    </div>
+  </div>
+</div>

@@ -1,0 +1,118 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="row">
+  <h1 class="text-center mb-3">Edit ground</h1>
+  <div class="col-6 offset-3">
+    <form
+      action="/grounds/<%= ground._id %>?_method=PUT"
+      method="post"
+      novalidate
+      class="validated-form"
+      enctype="multipart/form-data"
+    >
+      <!-- Edit ground title  -->
+      <div class="mb-3">
+        <label class="form-label" for="title">Title</label>
+        <input
+          class="form-control"
+          type="text"
+          id="title"
+          name="ground[title]"
+          value="<%= ground.title %>"
+          required
+        />
+        <div class="invalid-feedback">Please provide a title</div>
+      </div>
+
+      <!-- Edit ground location  -->
+      <div class="mb-3">
+        <label class="form-label" for="location">Location</label>
+        <input
+          class="form-control"
+          type="text"
+          id="location"
+          name="ground[location]"
+          value="<%= ground.location %>"
+          required
+        />
+        <div class="invalid-feedback">Please provide location of ground</div>
+      </div>
+
+      <!-- Add more images  -->
+      <div class="mb-3">
+        <label for="image" class="form-label">Add more images</label>
+        <input
+          class="form-control"
+          type="file"
+          id="image"
+          multiple
+          name="image"
+        />
+      </div>
+
+      <!-- Edit ground price  -->
+      <div class="mb-3">
+        <label for="price" class="form-label">Ground Rent</label>
+        <div class="input-group">
+          <span class="input-group-text" id="price-label"> ₹ </span>
+          <input
+            type="text"
+            id="price"
+            class="form-control"
+            value="<%= ground.price %>"
+            aria-label="price"
+            aria-describedby="price-label"
+            name="ground[price]"
+            required
+          />
+          <div class="invalid-feedback">
+            Please provide ground rent price per month
+          </div>
+        </div>
+      </div>
+
+      <!-- Edit ground description  -->
+      <div class="mb-3">
+        <label class="form-label" for="description">Ground Description</label>
+        <textarea
+          class="form-control"
+          type="text"
+          id="description"
+          name="ground[description]"
+          required
+        >
+ <%= ground.description %> </textarea
+        >
+        <div class="invalid-feedback">
+          Please provide description about ground!
+        </div>
+      </div>
+
+      <!-- Delete images  -->
+      <div class="mb-3">
+        <% ground.images.forEach(function(img,i){ %>
+        <div style="display: block">
+          <img src="<%=img.thumbnail%>" class="img-thumbnail" alt="" />
+
+          <div class="form-check-inline">
+            <input
+              type="checkbox"
+              name="deleteImages[]"
+              id="image<%=i%>"
+              value="<%=img.filename%>"
+            />
+          </div>
+          <label for="image<%=i%>">Delete</label>
+        </div>
+        <% }) %>
+      </div>
+
+      <!-- Submit button  -->
+      <div class="mb-3" style="text-align: right">
+        <button class="btn btn-danger">Update Ground</button>
+      </div>
+    </form>
+
+    <a href="/grounds/<%= ground._id %>">Back To Ground</a>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+.main-class {
+  text-align: center;
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 13%;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 45%;
+  color: white;
+}
+
+body {
+  height: 100vh;
+  justify-content: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('./box-cricket-construction.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.nav-link {
+  padding: 0.25rem 0;
+  margin-left: 1rem;
+  border-bottom: 0.15rem solid transparent;
+}
+
+.nav-link:hover {
+  border-bottom-color: orange;
+}

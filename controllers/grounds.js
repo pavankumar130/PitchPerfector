@@ -32,7 +32,7 @@ module.exports.createGround = async (req, res, next) => {
   ground.author = req.user._id
   await ground.save()
 
-  req.flash('success', 'Successfully made a new rental house')
+  req.flash('success', 'Successfully made a new rental Ground')
   res.redirect(`/grounds/${ground._id}`)
 }
 

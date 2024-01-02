@@ -51,7 +51,7 @@
         <li class="list-group-item text-muted">
           Posted by <b><%= ground.author.username %></b>
         </li>
-        <li class="list-group-item">₹ <%= ground.price %> per month</li>
+        <li class="list-group-item">₹ <%= ground.price %> per hour</li>
       </ul>
 
       <!-- Update and delete ground buttons (only for owner of ground) -->
@@ -127,7 +127,7 @@
         <button class="btn btn-success">Submit Review</button>
       </div>
     </form>
-    <% }else { %>
+    <% } else { %>
     <div style="text-align: center; margin-bottom: 20px">
       <h2>Login to review</h2>
     </div>
